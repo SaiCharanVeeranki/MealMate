@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center">Item List</h2>
+<hr>
+
+{% for item in li %}
+<div class="row mb-4 p-3 bg-light border rounded align-items-center">
+  <div class="col-md-2 text-center">
+    <img src="{{ item.item_image }}" class="img-thumbnail" style="height: 150px; width: 150px;" />
+  </div>
+
+  <div class="col-md-6">
+    <h4 class="mb-2">{{ item.item_desc }}</h4>
+  </div>
+
+  <div class="col-md-4 text-right">
+    <a href="{% url 'Foodapp:details' item.id %}" class="btn btn-primary mt-3">Details</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

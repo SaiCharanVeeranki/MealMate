@@ -1,0 +1,17 @@
+<form method="POST">
+  {% csrf_token %}
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card border-danger shadow-sm" style="width: 100%; max-width: 500px;">
+      <div class="card-header bg-danger text-white text-center">
+        <h4 class="mb-0">Delete Confirmation</h4>
+      </div>
+      <div class="card-body text-center">
+        <p>Are you sure you want to delete the item: <strong>{{ item.item_name }}</strong>?</p>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-danger me-2">Confirm</button>
+          <a href="{% url 'Foodapp:home' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

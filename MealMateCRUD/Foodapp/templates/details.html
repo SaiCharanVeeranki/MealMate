@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center bg-light p-4 border rounded">
+      
+      <!-- Item Image -->
+      <img src="{{ item.item_image }}" class="img-thumbnail mb-3" style="height: 200px; width: 200px;" />
+
+      <!-- Item Info -->
+      <h3><strong>{{ item.item_name }}</strong></h3>
+      <p>{{ item.item_desc }}</p>
+      <h5>Price: ₹{{ item.price }}</h5>
+
+      <!-- Action Buttons -->
+      <div class="mt-4">
+        <a href="{% url 'Foodapp:add_items' %}" class="btn btn-success mx-2">Add Item</a>
+        <a href="{% url 'Foodapp:update_items' item.id %}" class="btn btn-warning mx-2">Update Item</a>
+        <a href="{% url 'Foodapp:delete_item' item.id %}" class="btn btn-danger mx-2">Delete Item</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

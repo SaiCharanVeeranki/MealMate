@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 bg-light border rounded p-4 shadow">
+
+      <h3 class="text-center mb-4">Add New Item</h3>
+
+      <form method="POST">
+        {% csrf_token %}
+        
+        {% for field in form %}
+          <div class="form-group mb-3">
+            <label class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+              <div class="text-danger small">{{ field.errors }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <div class="text-end mt-3">
+          <button type="submit" class="btn btn-success">Add Item</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
